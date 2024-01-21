@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/rick-and-morti/static/css/main.78911b23.chunk.css",
+    "main.js": "/rick-and-morti/static/js/main.4361c36f.chunk.js",
+    "main.js.map": "/rick-and-morti/static/js/main.4361c36f.chunk.js.map",
+    "runtime~main.js": "/rick-and-morti/static/js/runtime~main.a7d67781.js",
+    "runtime~main.js.map": "/rick-and-morti/static/js/runtime~main.a7d67781.js.map",
+    "static/js/2.81f7db62.chunk.js": "/rick-and-morti/static/js/2.81f7db62.chunk.js",
+    "static/js/2.81f7db62.chunk.js.map": "/rick-and-morti/static/js/2.81f7db62.chunk.js.map",
+    "static/js/3.89dfd605.chunk.js": "/rick-and-morti/static/js/3.89dfd605.chunk.js",
+    "static/js/3.89dfd605.chunk.js.map": "/rick-and-morti/static/js/3.89dfd605.chunk.js.map",
+    "index.html": "/rick-and-morti/index.html",
+    "precache-manifest.05e1999abf9d1176c4dcd8a3a5e0fd17.js": "/rick-and-morti/precache-manifest.05e1999abf9d1176c4dcd8a3a5e0fd17.js",
+    "service-worker.js": "/rick-and-morti/service-worker.js",
+    "static/css/main.78911b23.chunk.css.map": "/rick-and-morti/static/css/main.78911b23.chunk.css.map"
+  }
+}
