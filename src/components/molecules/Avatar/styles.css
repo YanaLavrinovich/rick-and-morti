@@ -2,3 +2,8 @@
   border-radius: 30px;
   width: 60px;
 }
+
+.card-preview {
+  gap: 20px;
+  margin: 10px;
+}

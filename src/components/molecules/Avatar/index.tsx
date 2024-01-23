@@ -15,10 +15,6 @@ const useStyles = makeStyles({
   card: {
     minWidth: '30%',
   },
-  preview: {
-    display: 'grid',
-    gridTemplateColumns: '1fr 1fr 1fr',
-  },
 });
 
 interface IAvatarProps {
@@ -40,7 +36,7 @@ const Avatar = ({ item }: IAvatarProps) => {
         }
         description={<Caption1>{item.gender}</Caption1>}
       />
-      <CardPreview className={styles.preview}>
+      <CardPreview>
         <EpisodeList items={item.episode} />
       </CardPreview>
     </Card>

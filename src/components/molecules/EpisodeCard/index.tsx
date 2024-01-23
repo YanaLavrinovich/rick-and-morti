@@ -1,5 +1,4 @@
-import React from 'react';
-import './styles.css';
+import React, { useMemo } from 'react';
 import { Link } from '@fluentui/react-components';
 
 interface IEpisodeCardProps {
@@ -7,22 +6,22 @@ interface IEpisodeCardProps {
 }
 
 const EpisodeCard = ({ episode }: IEpisodeCardProps) => {
+  const episodeNumber = useMemo(() => {
+    const matched = episode.match(/episode\/\d+/g);
+    if (matched === null) {
+      return null;
+    }
+
+    return matched.at(0)?.split('/').at(1);
+  }, [episode]);
+
   return (
-    <ul className="episode-card">
-      <Link href={episode} target="_blank">
-        {parseEpisodeNumber(episode)}
+    <li>
+      <Link href={'/episode/' + episodeNumber}>
+        {'Episode - ' + episodeNumber}
       </Link>
-    </ul>
+    </li>
   );
-};
-
-const parseEpisodeNumber = (episode: string) => {
-  const matched = episode.match(/episode\/\d+/g);
-  if (matched === null) {
-    return null;
-  }
-
-  return matched.at(0)?.split('/').at(1);
 };
 
 export default EpisodeCard;
