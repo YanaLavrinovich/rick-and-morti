@@ -10,6 +10,7 @@ import React from 'react';
 import './styles.css';
 import EpisodeList from '../EpisodeList';
 import { ICharacter } from '../../../shared/types';
+import AvatarImage from '../AvatarImage';
 
 const useStyles = makeStyles({
   card: {
@@ -27,7 +28,7 @@ const Avatar = ({ item }: IAvatarProps) => {
     <Card className={styles.card}>
       <CardHeader
         image={
-          <img className={'avatar-img'} src={item.image} alt={item.name} />
+          <AvatarImage avatarId={item.id} src={item.image} alt={item.name} />
         }
         header={
           <Body1>

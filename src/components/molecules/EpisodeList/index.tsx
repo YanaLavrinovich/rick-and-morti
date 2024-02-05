@@ -1,7 +1,5 @@
 import React from 'react';
-import './styles.css';
-import EpisodeCard from '../EpisodeCard';
-import './styles.css';
+import EpisodeLink from '../EpisodeLink';
 import { makeStyles } from '@fluentui/react-components';
 
 interface IEpisodeListProps {
@@ -22,7 +20,7 @@ const EpisodeList = ({ items }: IEpisodeListProps) => {
   return (
     <ul className={styles.list}>
       {items.map((item, index) => (
-        <EpisodeCard key={index} episode={item} />
+        <EpisodeLink key={index} episode={item} />
       ))}
     </ul>
   );

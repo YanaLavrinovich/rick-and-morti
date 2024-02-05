@@ -20,3 +20,25 @@ export const currentCharacterListState = selector({
   get: ({ get }) =>
     get(characterListQuery(get(currentCharacterListPageState))).results,
 });
+
+export const episodeInfoQuery = selectorFamily({
+  key: 'EpisodeInfoQuery',
+  get: (id: string) => async () => {
+    const response = await fetch(
+      `https://rickandmortyapi.com/api/episode/${id}`
+    );
+
+    return response.json();
+  },
+});
+
+export const characterInfoQuery = selectorFamily({
+  key: 'CharacterInfoQuery',
+  get: (id: string) => async () => {
+    const response = await fetch(
+      `https://rickandmortyapi.com/api/character/${id}`
+    );
+
+    return response.json();
+  },
+});
