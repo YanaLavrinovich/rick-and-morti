@@ -1,5 +1,5 @@
 import React from 'react';
-import Avatar from '../Avatar';
+import AvatarCard from '../AvatarCard';
 import './styles.css';
 import { ICharacter } from '../../../shared/types';
 
@@ -10,7 +10,7 @@ interface IAvatarListProps {
 const AvatarList = ({ items }: IAvatarListProps) => {
   return (
     <div className="avatar-list">
-      {!!items && items.map((item) => <Avatar key={item.id} item={item} />)}
+      {!!items && items.map((item) => <AvatarCard key={item.id} item={item} />)}
     </div>
   );
 };

@@ -1,18 +1,21 @@
 import React from 'react';
-import './styles.css';
-import EpisodeLink from '../../molecules/EpisodeLink';
 import { episodeInfoQuery } from '../../../shared/recoil/selectors';
-import { useRecoilValue } from 'recoil';
+import { useRecoilValueLoadable } from 'recoil';
 import { Spinner } from '@fluentui/react-components';
 import { useParams } from 'react-router-dom';
+import EpisodeCard from '../../molecules/EpisodeCard';
 
 const EpisodePage = () => {
   const { id = '1' } = useParams();
-  const episode = useRecoilValue(episodeInfoQuery(id));
+  const episode = useRecoilValueLoadable(episodeInfoQuery(id));
   console.log(episode);
   return (
     <React.Suspense fallback={<div>Loading...</div>}>
-      {!!episode ? <EpisodeLink episode={episode.episode} /> : <Spinner />}
+      {episode.state === 'hasValue' ? (
+        <EpisodeCard episode={episode.contents} />
+      ) : (
+        <Spinner />
+      )}
     </React.Suspense>
   );
 };

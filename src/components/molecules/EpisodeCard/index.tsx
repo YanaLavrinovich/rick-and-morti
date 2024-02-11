@@ -1,5 +1,6 @@
 import {
   Body1,
+  Body1Stronger,
   Caption1,
   Card,
   CardHeader,
@@ -7,41 +8,41 @@ import {
   makeStyles,
 } from '@fluentui/react-components';
 import React from 'react';
-import './styles.css';
-import EpisodeList from '../EpisodeList';
-import { ICharacter } from '../../../shared/types';
-import AvatarImage from '../AvatarImage';
+import { IEpisode } from '../../../shared/types';
+import CharacterLinkList from '../CharacterLinkList';
 
 const useStyles = makeStyles({
   card: {
     minWidth: '30%',
   },
+  preview: {
+    display: 'flex',
+  },
 });
 
-interface IAvatarProps {
-  item: ICharacter;
+interface IEpisodeCardProps {
+  episode: IEpisode;
 }
 
-const Avatar = ({ item }: IAvatarProps) => {
+const EpisodeCard = ({ episode }: IEpisodeCardProps) => {
   const styles = useStyles();
   return (
     <Card className={styles.card}>
       <CardHeader
-        image={
-          <AvatarImage avatarId={item.id} src={item.image} alt={item.name} />
-        }
         header={
-          <Body1>
-            <b>{item.name}</b>
-          </Body1>
+          <p>
+            <Body1Stronger>{episode.name}</Body1Stronger> -{' '}
+            <Body1>{episode.episode}</Body1>
+          </p>
         }
-        description={<Caption1>{item.gender}</Caption1>}
+        description={<Caption1>{episode.air_date}</Caption1>}
       />
-      <CardPreview>
-        <EpisodeList items={item.episode} />
-      </CardPreview>
+      <CardPreview
+        className={styles.preview}
+        children={<CharacterLinkList characters={episode.characters} />}
+      />
     </Card>
   );
 };
 
-export default Avatar;
+export default EpisodeCard;

@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Link } from '@fluentui/react-components';
+import CardLink from '../../atoms/CardLink';
 
 interface IEpisodeLinkProps {
   episode: string;
@@ -16,11 +16,10 @@ const EpisodeLink = ({ episode }: IEpisodeLinkProps) => {
   }, [episode]);
 
   return (
-    <li>
-      <Link href={'/episode/' + episodeNumber}>
-        {'Episode - ' + episodeNumber}
-      </Link>
-    </li>
+    <CardLink
+      href={'/episode/' + episodeNumber}
+      title={'Episode - ' + episodeNumber}
+    />
   );
 };
 

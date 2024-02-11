@@ -1,5 +1,5 @@
 import {
-  Body1,
+  Body1Stronger,
   Caption1,
   Card,
   CardHeader,
@@ -18,11 +18,11 @@ const useStyles = makeStyles({
   },
 });
 
-interface IAvatarProps {
+interface IAvatarCardProps {
   item: ICharacter;
 }
 
-const Avatar = ({ item }: IAvatarProps) => {
+const AvatarCard = ({ item }: IAvatarCardProps) => {
   const styles = useStyles();
   return (
     <Card className={styles.card}>
@@ -31,17 +31,15 @@ const Avatar = ({ item }: IAvatarProps) => {
           <AvatarImage avatarId={item.id} src={item.image} alt={item.name} />
         }
         header={
-          <Body1>
+          <Body1Stronger>
             <b>{item.name}</b>
-          </Body1>
+          </Body1Stronger>
         }
         description={<Caption1>{item.gender}</Caption1>}
       />
-      <CardPreview>
-        <EpisodeList items={item.episode} />
-      </CardPreview>
+      <CardPreview children={<EpisodeList items={item.episode} />} />
     </Card>
   );
 };
 
-export default Avatar;
+export default AvatarCard;

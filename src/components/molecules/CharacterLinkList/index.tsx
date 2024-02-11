@@ -1,9 +1,9 @@
 import React from 'react';
-import EpisodeLink from '../EpisodeLink';
+import CharacterLink from '../CharacterLink';
 import { makeStyles } from '@fluentui/react-components';
 
-interface IEpisodeListProps {
-  items: string[];
+interface ICharacterLinkProps {
+  characters: string[];
 }
 
 const useStyles = makeStyles({
@@ -13,18 +13,17 @@ const useStyles = makeStyles({
   },
 });
 
-const EpisodeList = ({ items }: IEpisodeListProps) => {
+const CharacterLinkList = ({ characters }: ICharacterLinkProps) => {
   const styles = useStyles();
-
   return (
     <div>
       <ul className={styles.list}>
-        {items.map((item, index) => (
-          <EpisodeLink key={index} episode={item} />
+        {characters.map((character, index) => (
+          <CharacterLink key={index} character={character} />
         ))}
       </ul>
     </div>
   );
 };
 
-export default EpisodeList;
+export default CharacterLinkList;

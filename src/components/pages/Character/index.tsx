@@ -1,17 +1,20 @@
 import React from 'react';
-import './styles.css';
-import Avatar from '../../molecules/Avatar';
+import Avatar from '../../molecules/AvatarCard';
 import { useParams } from 'react-router-dom';
-import { useRecoilValue } from 'recoil';
+import { useRecoilValueLoadable } from 'recoil';
 import { Spinner } from '@fluentui/react-components';
 import { characterInfoQuery } from '../../../shared/recoil/selectors';
 
 const CharacterPage = () => {
   const { id = '1' } = useParams();
-  const character = useRecoilValue(characterInfoQuery(id));
+  const character = useRecoilValueLoadable(characterInfoQuery(id));
   return (
     <React.Suspense fallback={<Spinner />}>
-      {!!character ? <Avatar item={character} /> : <Spinner />}
+      {character.state === 'hasValue' ? (
+        <Avatar item={character.contents} />
+      ) : (
+        <Spinner />
+      )}
     </React.Suspense>
   );
 };
