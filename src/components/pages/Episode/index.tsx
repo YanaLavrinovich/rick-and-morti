@@ -8,7 +8,6 @@ import EpisodeCard from '../../molecules/EpisodeCard';
 const EpisodePage = () => {
   const { id = '1' } = useParams();
   const episode = useRecoilValueLoadable(episodeInfoQuery(id));
-  console.log(episode);
   return (
     <React.Suspense fallback={<div>Loading...</div>}>
       {episode.state === 'hasValue' ? (
